@@ -5,7 +5,7 @@
 
 Доступ к аналитической платформе предоставляется ресурсами сервиса Yandex Compute Cloud. Сервис позволяет использовать виртуальные машины в инфраструктуре Яндекс.Облака для работы с Loginom. В зависимости от сложности вычислений можно определить необходимое число ядер, объём памяти, размер и количество дисков, а также зона доступности виртуальной машины. А при необходимости эти параметры можно изменить без переустановки системы.
 
-[Loginom Platform в Яндекс.Облаке](https://cloud.yandex.ru/marketplace/products/f2esjn14f4ekcb53igdt)
+[Loginom Platform в Яндекс.Облаке](https://cloud.yandex.ru/marketplace/products/loginom)
 
 ## Начало работы
 
@@ -25,8 +25,8 @@
 
 На рабочем столе в RDP-сессии есть дополнительные ярлыки:
 	
-1.	Ярлык `GuardantActivationWizard` - приложение для активации программного SP-ключа ПО Loginom, [инструкция](	https://help.loginom.ru/adminguide/licenses/sp-activate.html) по активации в файле "Активация SP-ключей"
-	https://help.loginom.ru/adminguide/licenses/sp-activate.html
+1.	Ярлык `GuardantActivationWizard` - приложение для активации программного SP-ключа ПО Loginom, [инструкция](https://help.loginom.ru/adminguide/licenses/sp-key-activate.html) по активации в файле "Активация SP-ключей"
+	https://help.loginom.ru/adminguide/licenses/sp-key-activate.html
 
 2.	Ярлык `Задать пароль admin` - запускает скрипт принудительного задания и обновления пароля пользователя `admin`. Может потребоваться при необходимости задать новый пароль, например в случае потери действующего.
 
