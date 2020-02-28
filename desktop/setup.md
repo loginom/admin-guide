@@ -4,7 +4,7 @@
 
 * LoginomPersonal_6.x.x_x64.msi — инсталлятор для редакции Personal 64-битной версии
 * LoginomPersonal_6.x.x_x86.msi — инсталлятор для редакции Personal 32-битной версии
-* LoginomAcademic_6.x.x.msi — инсталлятор для редакции Academic
+* LoginomCommunity_6.x.x.msi — инсталлятор для редакции Community
 
 где 6.x.x – цифры, обозначающие версию и релиз программы.
 
