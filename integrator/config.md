@@ -92,10 +92,33 @@ Loginom Integrator поддерживает информацию о работо
 * **userNameColumn** - имя поля для записи пользователя, от имени которого запущен процесс Integrator;
 * **appDomainColumn** - имя поля для записи идентификатора домена приложения;
 * **requestIdColumn** - имя поля для записи уникального идентификатора запроса;
+* **packageNameColumn** - имя поля для записи имени исполняемого пакета;
+* **nodeNameColumn** - имя поля для записи имени исполняемого узла;
 * **messageColumn** - имя поля для записи текста события;
 * **exceptionColumn** - имя поля для записи текста ошибки;
+* **requestColumn** - имя поля для записи текста запроса к веб-сервису;
+* **responseColumn** - имя поля для записи текста ответа веб-сервиса.
 
 Атрибуты с именами полей могут отсутствовать или содержать пустые значения. В этом случае соответствующие данные не логируются.
+
+Пример скрипта создания таблицы хранения логов в MS SQL:
+
+``` SQL
+/* может потребоваться корректировка размерности полей nvarchar */
+CREATE TABLE [dbo].[Logs](
+    [Date] [datetime2](4),
+    [Level] [nvarchar](10),
+    [MachineName] [nvarchar](100),
+    [AppDomain] [nvarchar](200),
+    [RequestId] [nvarchar](32),
+    [PackageName] [nvarchar](100) NULL,
+    [NodeName] [nvarchar](100) NULL,
+    [Message] [nvarchar](max) NULL,
+    [Exception] [nvarchar](max) NULL,
+    [Request] [nvarchar](max) NULL,
+    [Response] [nvarchar](max) NULL
+) ON [PRIMARY] TEXTIMAGE_ON [PRIMARY]
+```
 
 #### SQL запрос
 
@@ -111,8 +134,12 @@ SQL запрос задается в атрибуте `sqlCommand`.
 * **:username** - имя пользователя, от имени которого запущен процесс Integrator;
 * **:appdomain** - идентификатор домена приложения;
 * **:requestid** - уникальный идентификатор запроса;
+* **:packagename** - именя исполняемого пакета;
+* **:nodename** - именя исполняемого узла;
 * **:message** - текст события;
 * **:exception** - текст ошибки;
+* **:request** - текст запроса к веб-сервису;
+* **:response** - текст ответа веб-сервиса.
 
 ### Запись событий логирования
 
