@@ -1,7 +1,6 @@
 # SUMMARY
 
 * [Главная](./README.md)
-  * [Взаимодействие компонентов](./platform/scheme.md)
 * [Loginom Server](./server/README.md)
   * [Установка](./server/setup.md)
     * [Microsoft IIS](./server/iis.md)
