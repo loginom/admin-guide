@@ -9,7 +9,7 @@
 | Компонент | Минимальные | Рекомендуемые |
 |:--------- |:-------------|:------------- |
 | OS | Windows Server 2012 и выше | |
-| Software | IIS 8.0 и выше, DotNet 4.5 | |
+| Software | IIS 8.0 и выше, .Net 4.5 | |
 | CPU | 2 core | 4 core |
 | RAM | 2 GB | 4 GB |
 | HDD | 100 GB | 500 GB |
