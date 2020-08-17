@@ -174,7 +174,7 @@ SQL запрос задается в атрибуте `sqlCommand`.
 	<!--Элемент database содержит настройки логирования в БД/>-->
     <!--Атрибут connectionString содержит строку подключения к БД/>-->
     <!--В примере используется драйвер OLEDB для SQLServer (должен быть установлен в системе)/>-->
-    <!--Атрибут sqlCommand задает запрос на запись события журнал/>-->
+    <!--Атрибут sqlCommand задает запрос на запись события журнала/>-->
     <!--При таком способе логирования имеется возможность модификации записей журнала/>-->
     <!--В примере содержимое поля :response будет обрезано до 1000 знаков/>-->
     <database connectionString="Provider=sqloledb; Server=192.168.0.1; Database=Integrator; User Id=sa; Password=Password123" level="All" sqlCommand="insert into Logs (Date, Level, MachineName, AppDomain, RequestId, PackageName, NodeName, Message, Exception, Request, Response) values (:date, :level, :machinename, :appdomain, :requestid, :packagename, :nodename, :message, :exception, :request, SUBSTRING( :response, 0, 999))"/>
