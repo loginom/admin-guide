@@ -145,6 +145,26 @@ CREATE TABLE [dbo].[Logs](
 
 SQL запрос задается в атрибуте `sqlCommand`.
 
+%spoiler%Запись полей журнала SQL запросом. Пример раздела `<log>` web.cofig:%spoiler%
+
+``` XML
+<!--Параметры логирования задаются в элементе log/>-->
+<log>
+	<fileSystem level="Off" maxArchiveFiles="30" encoding="utf-8" path="C:\Logs"/>
+	<eventLog level="Off" />
+	<!--Элемент database содержит настройки логирования в БД/>-->
+    <!--Атрибут connectionString содержит строку подключения к БД/>-->
+    <!--В данном примере используется драйвер OLE DB для SQL Server, который должен быть установлен в системе/>-->
+    <!--Атрибут sqlCommand задает запрос на запись события журнал/>-->
+    <!--При таком способе логирования имеется возможность модификации записей журнала/>-->
+    <!--В данном примере, данные поля :response будут обрезаны до 1000 знаков/>-->
+    <database connectionString="Provider=sqloledb; Server=192.168.0.1; Database=Integrator; User Id=sa; Password=Password123" level="All" sqlCommand="insert into Logs (Date, Level, MachineName, AppDomain, RequestId, PackageName, NodeName, Message, Exception, Request, Response) values (:date, :level, :machinename, :appdomain, :requestid, :packagename, :nodename, :message, :exception, :request, SUBSTRING( :response, 0, 999))"/>
+    <internal level="Error" />
+</log>
+```
+
+%/spoiler%
+
 Если задан атрибут `table`, `sqlCommand` будет проигнорирован.
 
 В качестве устанавливаемых значений в запросе требуется указывать следующие параметры:
@@ -161,27 +181,6 @@ SQL запрос задается в атрибуте `sqlCommand`.
 * **:exception** - текст ошибки;
 * **:request** - текст запроса к веб-сервису;
 * **:response** - текст ответа веб-сервиса.
-
-%spoiler%Запись полей журнала SQL запросом. Пример раздела `<log>` web.cofig:%spoiler%
-
-``` XML
-<!--Параметры логирования задаются в элементе log/>-->
-<log>
-	<fileSystem level="Off" maxArchiveFiles="30" encoding="utf-8" path="C:\Logs"/>
-	<eventLog level="Off" />
-	<!--Элемент database содержит настройки логирования в БД/>-->
-    <!--Атрибут connectionString содержит строку подключения к БД/>-->
-    <!--В данном примере используется драйвер OLE DB для SQL Server, который должен быть установлен в системе/>-->
-    <!--Атрибут sqlCommand задает запрос на запись события журнал/>-->
-    <!--При таком способе логирования имеется возможность модификации записей журнала/>-->
-    <!--В данном примере, данные поля :response будут обрезаны до 1000 знаков/>-->
-    <database connectionString="Provider=sqloledb; Server=192.168.0.1; Database=Integrator; User Id=sa; Password=Password123" level="All"
-					sqlCommand="insert into Logs (Date, Level, MachineName, AppDomain, RequestId, PackageName, NodeName, Message, Exception, Request, Response) values (:date, :level, :machinename, :appdomain, :requestid, :packagename, :nodename, :message, :exception, :request, SUBSTRING( :response, 0, 999))"/>
-    <internal level="Error" />
-</log>
-```
-
-%/spoiler%
 
 > **Примечание**: применение атрибута `userNameColumn` и соответствующего ему параметра `:username`  заметно увеличивает время выполнения операции логирования. Рекомендуется не использовать их без необходимости.
 
