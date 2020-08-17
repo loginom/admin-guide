@@ -133,7 +133,7 @@ CREATE TABLE [dbo].[Logs](
 	<eventLog level="Off" />
 	<!--Элемент database содержит настройки логирования в БД/>-->
     <!--Атрибут connectionString содержит строку подключения к БД/>-->
-    <!--В данном примере используется драйвер OLE DB для SQL Server, который должен быть установлен в системе/>-->
+    <!--В примере используется драйвер OLEDB для SQLServer (должен быть установлен в системе)/>-->
     <database connectionString="Provider=sqloledb; Server=192.168.0.1; Database=Integrator; User Id=sa; Password=Password123" level="All" table="Logs" dateColumn="Date" levelColumn="Level" machineNameColumn="MachineName" appDomainColumn="AppDomain" requestIdColumn="RequestId" packageNameColumn="PackageName" nodeNameColumn="NodeName" messageColumn="Message" exceptionColumn="Exception" requestColumn="Request" responseColumn="Response"/>
 	<internal level="Error" />
 </log>
@@ -173,10 +173,10 @@ SQL запрос задается в атрибуте `sqlCommand`.
 	<eventLog level="Off" />
 	<!--Элемент database содержит настройки логирования в БД/>-->
     <!--Атрибут connectionString содержит строку подключения к БД/>-->
-    <!--В данном примере используется драйвер OLE DB для SQL Server, который должен быть установлен в системе/>-->
+    <!--В примере используется драйвер OLEDB для SQLServer (должен быть установлен в системе)/>-->
     <!--Атрибут sqlCommand задает запрос на запись события журнал/>-->
     <!--При таком способе логирования имеется возможность модификации записей журнала/>-->
-    <!--В данном примере, данные поля :response будут обрезаны до 1000 знаков/>-->
+    <!--В примере содержимое поля :response будет обрезано до 1000 знаков/>-->
     <database connectionString="Provider=sqloledb; Server=192.168.0.1; Database=Integrator; User Id=sa; Password=Password123" level="All" sqlCommand="insert into Logs (Date, Level, MachineName, AppDomain, RequestId, PackageName, NodeName, Message, Exception, Request, Response) values (:date, :level, :machinename, :appdomain, :requestid, :packagename, :nodename, :message, :exception, :request, SUBSTRING( :response, 0, 999))"/>
     <internal level="Error" />
 </log>
