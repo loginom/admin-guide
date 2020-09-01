@@ -14,3 +14,10 @@
 | RAM | 2 GB | 4 GB |
 | HDD | 100 GB | 500 GB |
 | USB | 1.0 | 2.0 |
+
+## Взаимодействие компонентов
+
+![](../images/service.svg)
+
+* Внешний сервис подключается по протоколу http к web-серверу (IIS), на котором развернуто web-приложение Loginom Integrator;
+* Integrator обрабатывает запрос и создает подключение на TCP [порт сервера](../server/setup.md#parametry-loginom-server) к хосту сервера Loginom.
