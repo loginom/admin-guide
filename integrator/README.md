@@ -19,5 +19,5 @@
 
 ![](../images/service.svg)
 
-* Внешний сервис подключается по протоколу http к web-серверу (IIS), на котором развернуто web-приложение Loginom Integrator;
+* Внешний сервис подключается по протоколу http (https) к web-серверу (IIS), на котором развернуто web-приложение Loginom Integrator;
 * Integrator обрабатывает запрос и создает подключение на TCP [порт сервера](../server/setup.md#parametry-loginom-server) к хосту сервера Loginom.
