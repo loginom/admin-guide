@@ -193,9 +193,9 @@ netsh advfirewall firewall add rule name="Allow Guardant Net" dir=out action=all
 
 При установке в Loginom Server создаются учетные записи пользователей:
 
-* `user` с пустым паролем — для работы со сценариями Loginom
-* `admin` с паролем `admin` — для администрирования сервера Loginom
-* `service` с паролем `service` — для подключения внешних приложений (Integrator и BatchLauncher)
+* `user` с пустым паролем — для работы со сценариями Loginom. Пользователю назначены [роли](https://help.loginom.ru/userguide/admin/roles.html) "Проектирование сценариев" и "Просмотр отчетов", а также права на [публикацию пакетов](https://help.loginom.ru/userguide/integration/web-services/publishing-web-service.html).
+* `admin` с паролем `admin` — для администрирования сервера Loginom.
+* `service` с паролем `service` — для подключения внешних приложений (Integrator и BatchLauncher).
 
 > **Примечание:** После завершения установки в обязательном порядке необходимо изменить пароль учетной записи администратора (admin).
 
